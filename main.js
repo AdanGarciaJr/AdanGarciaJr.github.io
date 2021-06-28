@@ -1,6 +1,9 @@
 
 var btn = document.getElementById('giveRec').onclick = displayRec;
 
+var scrolls = document.getElementById("scroll");
+scrolls.style.color = 'red';
+
 function displayRec(){
 
     var choice = document.querySelector('#num').value;
@@ -12,9 +15,20 @@ function displayRec(){
         "For Sports we recommend a good full frame sensor camera and long zoom lens with a wide aperture in case you are shooting in darker conditions.",
         "For wildlife we recommend a very good crop sensor camera and a very long telephoto lens (ex. 200-600 f5.6-6.3) because a lot of times you will" +
         " be far away from your subject."]
+    var results = document.querySelector("#result");
 
-    //var pick = Number(choice);
-    document.getElementById("result").innerHTML = choiceArray[Number(choice)-1];
+
+    if(choice < 1 ||  choice > 4)
+    {
+        //results.document.style.color = 'red';
+
+        results.innerHTML = "ENTER A VALID NUMBER";
+    }
+    else
+    {
+        results.innerHTML = choiceArray[Number(choice)-1];
+    }
+
     console.log(choiceArray[Number(choice)-1]);
 }
 
